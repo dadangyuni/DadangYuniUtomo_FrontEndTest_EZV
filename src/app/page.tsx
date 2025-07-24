@@ -1,15 +1,10 @@
-import { makeStore } from "@/lib/store";
-import { todoApi } from "@/services/todo";
+import { API_BASE_URL } from "@/constants/url";
 import { Todo } from "@/types/todo.types";
 import ListViews from "@/views/List";
 
 export default async function TodosPage() {
-  const store = makeStore();
-
-  await store.dispatch(todoApi.endpoints.getPaginatedTodos.initiate({}));
-
-  const { data: todos = [] } = todoApi.endpoints.getPaginatedTodos.select({})(
-    store.getState()
+  const todos = await fetch(`${API_BASE_URL}/todos?_start=0&_limit=10`).then(
+    (res) => res.json()
   );
 
   return <ListViews initialTodos={todos as Todo[]} />;
