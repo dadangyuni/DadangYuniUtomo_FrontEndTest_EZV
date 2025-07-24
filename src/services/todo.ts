@@ -30,8 +30,20 @@ export const todoApi = createApi({
         body,
       }),
     }),
+    updateTodo: builder.mutation<Todo, Partial<Todo> & Pick<Todo, "id">>({
+      query: ({ id, ...patch }) => ({
+        url: `todos/${id}`,
+        method: "PATCH",
+        body: patch,
+      }),
+    }),
   }),
 });
 
-export const { useGetTodoByIDQuery, useGetTodosQuery, useAddTodoMutation } =
-  todoApi;
+export const {
+  useGetTodoByIDQuery,
+  useGetTodosQuery,
+  useAddTodoMutation,
+  useGetPaginatedTodosQuery,
+  useUpdateTodoMutation,
+} = todoApi;

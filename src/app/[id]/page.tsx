@@ -5,7 +5,6 @@ import DetailView from "@/views/Detail";
 export const revalidate = 60;
 
 export async function generateStaticParams() {
-  console.log("generateStaticParams dijalankan...");
   //fetch all
   const todos = await fetch(`${API_BASE_URL}/todos`).then((res) => res.json());
   return (
