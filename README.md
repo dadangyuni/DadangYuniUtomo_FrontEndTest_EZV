@@ -1,36 +1,119 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# 📝 Todo App
 
-## Getting Started
+A modern Todo App built with **Next.js (App Router)**, **Server-Side Rendering (SSR)**, **Incremental Static Regeneration (ISR)**, **RTK Query**, **Tailwind CSS**, and **React Hook Form**.
 
-First, run the development server:
+## 🔗 Demo
+
+Check out the live demo:
+
+👉 [https://todosfrontendtestezv.vercel.app](https://todosfrontendtestezv.vercel.app)
+
+---
+
+## 🚀 Features
+
+- ✅ View list of todos (SSR + ISR)
+- ➕ Add a new todo (React Hook Form + RTK Query)
+- 🔁 Update todo completion status (RTK Mutation)
+- 📄 View todo details (Dynamic Route + ISR)
+- 💅 Fully responsive with Tailwind CSS
+
+---
+
+## 📦 Tech Stack
+
+| Tech                                                         | Description                                   |
+| ------------------------------------------------------------ | --------------------------------------------- |
+| [Next.js](https://nextjs.org/)                               | React framework with App Router, SSR, and ISR |
+| [RTK Query](https://redux-toolkit.js.org/rtk-query/overview) | Data fetching, caching, and mutations         |
+| [Tailwind CSS](https://tailwindcss.com/)                     | Utility-first CSS framework                   |
+| [React Hook Form](https://react-hook-form.com/)              | Form management library                       |
+| [TypeScript](https://www.typescriptlang.org/)                | Static typing (if enabled)                    |
+
+---
+
+## 📂 Project Structure
+
+```
+/app
+  /[id]
+    /page.tsx      # Todo detail page (ISR)
+  /layout.tsx
+  /page.tsx        # List todos (SSR)
+  /globals.css
+
+/constants
+  /url.ts          # Global variable endpoints
+
+/lib
+  /store.ts          # Redux store
+
+/services
+  /todo.ts          # Todo API Service with RTKQ
+
+/components
+  /Spinner.tsx
+  /ReduxProvider.tsx
+  /Button.tsx
+  /TodoCard.tsx
+  /TodoForm.tsx
+
+/types
+  /todo.types.ts    # TypeScript interfaces/types
+
+/views              # Client Side component for page
+```
+
+---
+
+## 🧑‍💻 Getting Started
+
+### 1. Clone the Repository
+
+```bash
+git clone https://github.com/dadangyuni/DadangYuniUtomo_FrontEndTest_EZV.git
+cd DadangYuniUtomo_FrontEndTest_EZV
+```
+
+### 2. Install Dependencies
+
+```bash
+npm install
+# or
+yarn install
+```
+
+### 3. Run the Development Server
 
 ```bash
 npm run dev
 # or
 yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Visit [http://localhost:3000](http://localhost:3000) to start using the app.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+---
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## 🧪 Available Scripts
 
-## Learn More
+- `dev` – Run development server
+- `build` – Build for production
+- `start` – Start production server
+- `lint` – Lint project using ESLint
 
-To learn more about Next.js, take a look at the following resources:
+---
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## 🛠 Configuration Notes
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+- Data is fetched from [JSONPlaceholder](https://jsonplaceholder.typicode.com/todos) using query params `?_start` and `&_limit` for pagination.
+- SSR is used to pre-render the todo list.
+- ISR (`revalidate`) is applied for detail and list pages.
+- RTK Query is used on the client side for cache management, refetching, and mutations.
+- Pagination is handled client-side after initial SSR.
 
-## Deploy on Vercel
+---
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+## 🙋‍♂️ Author
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+Developed by [Dadang](https://github.com/dadangyuni)
